@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -21,7 +22,9 @@ public class Comentario extends General {
 		
 		//lo dejamos invisible
 		//o ver el obejto post deja de ser importante 
-		@JsonManagedReference
+	
+		//cuando el objeto es importante no se agregan anotaciones
+		@JsonBackReference
 		@ManyToOne
 		private Post post; //Aplicación de asociación 
 		
@@ -32,6 +35,7 @@ public class Comentario extends General {
 		}
 		public void setTexto(String texto) {
 			this.texto = texto;
+		
 		}
 		public Integer getEstrellas() {
 			return estrellas;
@@ -55,9 +59,8 @@ public class Comentario extends General {
 		public String toString() {
 			return "Comentario [texto=" + texto + ", estrellas=" + estrellas + ", post=" + post + ", suscrito="
 					+ suscrito + "]";
-		} 
-		
-		
-		
+} 
 
-}
+} 
+
+
