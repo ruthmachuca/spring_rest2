@@ -114,7 +114,9 @@
            
         },
         created(){
-        	
+        	console.log(localStorage.getItem("token"));
+            Vue.axios.defaults.headers.common['Authorization'] ='Bearer '+ localStorage.getItem("token");
+
 
         },
         mounted() { //cuando se monta el DOM (dOCUMENT OPTION MODEL)

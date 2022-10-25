@@ -32,8 +32,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		web.ignoring().antMatchers("/");
 		web.ignoring().antMatchers("/autenticar");//no es necesario loguearse a estas urls 
 		web.ignoring().antMatchers(HttpMethod.GET,"/form");
-		web.ignoring().antMatchers("/lib/**");
-		web.ignoring().antMatchers("/**/**.ico**");
+		web.ignoring().antMatchers("/lib/**");//Mediante esto se habilita la consulta de las librerias
+		web.ignoring().antMatchers("/**/**.ico**");//Mediante esto de habilita todo con extension.ico
 		
 	}
 }
